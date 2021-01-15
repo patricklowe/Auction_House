@@ -60,15 +60,4 @@ result = result.drop_duplicates(subset ="auction_id")
 result['hrs_to_sell'] = (result['sold'] - result['posted']).astype('timedelta64[h]')
 result['cost_gold'] = result['cost_gold'].fillna(0)
 result = result[result['appearance_left'].apply(lambda x: '< 0.5 Hrs' not in x)]
-#result.to_csv('sold_auctions.csv',index=False)
-
-#DELETE
-sold_bags = result[ result['id'] == 154695]
-sold_ids = list(sold_bags['auction_id'])
-unsold_bags = auction_df[ (auction_df['id'] == 154695) & ~(auction_df['auction_id'].isin(sold_ids))]
-unsold_bags['item_sold'] = 'no'
-sold_bags['item_sold'] = 'yes'
-
-frames = [sold_bags, unsold_bags]
-tester = pd.concat(frames)
-tester.to_csv('deep_sea_bag.csv',index=False)
+result.to_csv('sold_auctions.csv',index=False)
