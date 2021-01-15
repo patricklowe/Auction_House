@@ -18,7 +18,7 @@ df['cost_gold'] = pd.to_numeric( df['cost_gold'].fillna(0) )
 df['cost_gold'] = df['cost_gold'].astype(str).replace('','0')
 df['cost_gold'] = pd.to_numeric( df['cost_gold'] )
 # Create a token to access API
-response = create_access_token('59cc7fe2d633479a8eabf7bfd61ec8aa', 'fq48ndwEJ6P7dLMxG7gTThGlYwIPVjmD')
+response = create_access_token('YOUR_ID', 'YOUR_SECRET')
 token = response['access_token']
 
 # Item Data
